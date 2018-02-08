@@ -1,20 +1,23 @@
-﻿using Api.Helpers;
-using Api.Repository;
-using Nancy;
+﻿using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.LightningCache.CacheKey;
 using Nancy.LightningCache.Extensions;
 using Nancy.Routing;
 using Nancy.TinyIoc;
-using Newtonsoft.Json;
-using System.Diagnostics;
+using System;
 
 namespace Api
 {
     public class Bootstrapper : DefaultNancyBootstrapper
     {
-        private readonly int CacheTimespan = 60;
-        private readonly bool CacheEnabled = true;
+        private readonly int CacheTimespan;
+        private readonly bool CacheEnabled;
+
+        public Bootstrapper(AppSettings settings)
+        {
+            CacheEnabled = settings.Cache.CacheEnabled;
+            CacheTimespan = settings.Cache.CacheTimespan;
+        }
 
         protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
         {
@@ -26,23 +29,11 @@ namespace Api
             }
         }
 
-        protected override void ConfigureApplicationContainer(TinyIoCContainer container)
-        {
-            base.ConfigureApplicationContainer(container);
-
-            container.Register<JsonSerializer, CustomJsonSerializer>();
-
-            var templateAssembly = typeof(Bootstrapper).Assembly;
-
-            container.Register<Stopwatch, Stopwatch>();
-            container.Register<IHelloRepository, HelloRepository>();
-        }
-
         public void ConfigureCache(NancyContext context)
         {
             if (context.Response.StatusCode == HttpStatusCode.OK && context.Request.Method == "GET")
             {
-                context.Response = context.Response.AsCacheable(System.DateTime.Now.AddSeconds(CacheTimespan));
+                context.Response = context.Response.AsCacheable(DateTime.Now.AddSeconds(CacheTimespan));
             }
         }
     }
