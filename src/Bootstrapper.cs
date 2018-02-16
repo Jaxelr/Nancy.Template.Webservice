@@ -24,7 +24,7 @@ namespace Api
             base.ApplicationStartup(container, pipelines);
             if (CacheEnabled)
             {
-                this.EnableLightningCache(container.Resolve<IRouteResolver>(), ApplicationPipelines, new DefaultCacheKeyGenerator(new[] { "id", "query", "take", "skip", "accept" }));
+                this.EnableLightningCache(container.Resolve<IRouteResolver>(), ApplicationPipelines, new DefaultCacheKeyGenerator(new[] { "query", "form", "accept" }));
                 pipelines.AfterRequest.AddItemToStartOfPipeline(ConfigureCache);
             }
         }
