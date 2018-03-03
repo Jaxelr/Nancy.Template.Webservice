@@ -11,4 +11,4 @@ before_build:
 build_script:
   - cmd: dotnet publish ./src/Nancy.Template.WebService.csproj
 test_script:
-  - cmd: dotnet test ./test/Nancy.Template.WebService.Tests.csproj
+  - cmd: dotnet test ./tests/Nancy.Template.WebService.Tests.csproj
