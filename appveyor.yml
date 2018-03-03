@@ -10,3 +10,5 @@ before_build:
   - cmd: dotnet restore ./src/Nancy.Template.WebService.csproj
 build_script:
   - cmd: dotnet publish ./src/Nancy.Template.WebService.csproj
+test_script:
+  - cmd: dotnet test ./test/Nancy.Template.WebService.Tests.csproj

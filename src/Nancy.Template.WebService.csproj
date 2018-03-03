@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Validators\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
@@ -17,9 +16,9 @@
     <PackageReference Include="Nancy" Version="2.0.0-clinteastwood" />
     <PackageReference Include="Nancy.LightningCache.AspNetCore" Version="0.1.1" />
     <PackageReference Include="Nancy.Metadata.Modules" Version="2.0.0-clinteastwood" />
-    <PackageReference Include="Nancy.Metadata.Swagger.AspNetCore" Version="0.1.0" />
+    <PackageReference Include="Nancy.Metadata.Swagger.AspNetCore" Version="0.1.1" />
     <PackageReference Include="Nancy.Validation.FluentValidation" Version="2.0.0-clinteastwood" />
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
   </ItemGroup>
 
   <ItemGroup>
