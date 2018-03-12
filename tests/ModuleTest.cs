@@ -10,17 +10,17 @@ namespace Nancy.Template.WebService.Tests
 {
     public class ModuleTest
     {
-        private readonly string AcceptHeader = @"application/json";
         private IHelloRepository repository = Substitute.For<IHelloRepository>();
 
         [Fact]
         public void Sample_module_returns_hello()
         {
             //Arrange
-            string username = "User";
-            string HelloPath = string.Concat("/api/Hello");
+            string Name = Fakes.FakeProps.Username;
+            string HelloPath = Fakes.FakeProps.HelloPath;
+            string Accept = Fakes.FakeProps.AcceptHeader;
 
-            repository.SayHello(username).Returns($"Hello, {username}");
+            repository.SayHello(Name).Returns($"Hello, {Name}");
 
             var browser = new Browser(with =>
             {
@@ -33,20 +33,21 @@ namespace Nancy.Template.WebService.Tests
             //Act
             var response = browser.Get(HelloPath, with =>
             {
-                with.Header("Accept", AcceptHeader);
-                with.Query("Name", username);
+                with.Header(nameof(Accept), Accept);
+                with.Query(nameof(Name), Name);
             });
 
             //Assert
             Assert.Equal(HttpStatusCode.OK, response.Result.StatusCode);
-            Assert.Contains(username, response.Result.Body.AsString());
+            Assert.Contains(Name, response.Result.Body.AsString());
         }
 
         [Fact]
         public void Sample_module_returns_400_code()
         {
             //Arrange
-            string HelloPath = string.Concat("/api/Hello");
+            string HelloPath = Fakes.FakeProps.HelloPath;
+            string Accept = Fakes.FakeProps.AcceptHeader;
 
             var browser = new Browser(with =>
             {
@@ -59,7 +60,7 @@ namespace Nancy.Template.WebService.Tests
             //Act
             var response = browser.Get(HelloPath, with =>
             {
-                with.Header("Accept", AcceptHeader);
+                with.Header(nameof(Accept), Accept);
             });
 
             //Assert
