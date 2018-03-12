@@ -11,4 +11,4 @@ before_build:
 build_script:
   - cmd: dotnet publish ./src/Nancy.Template.WebService.csproj -c release -v minimal
 test_script:
-  - cmd: dotnet test ./tests/Nancy.Template.WebService.Tests.csproj -c release -v minimal --no-restore
+  - cmd: dotnet test ./tests/Nancy.Template.WebService.Tests.csproj -c release -v minimal 
