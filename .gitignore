@@ -261,3 +261,6 @@ __pycache__/
 *.pyc
 .vscode/
 src/Properties/PublishProfiles/
+
+# Serilog logging files
+*log*

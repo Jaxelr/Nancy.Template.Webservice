@@ -3,7 +3,10 @@ using Nancy.Bootstrapper;
 using Nancy.LightningCache.CacheKey;
 using Nancy.LightningCache.Extensions;
 using Nancy.Routing;
+using Nancy.Serilog;
 using Nancy.TinyIoc;
+using Serilog;
+using Serilog.Formatting.Json;
 using System;
 
 namespace Api
@@ -22,11 +25,24 @@ namespace Api
         protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
         {
             base.ApplicationStartup(container, pipelines);
+
+            pipelines.EnableSerilog();
+
+            Log.Logger = new LoggerConfiguration()
+                .WriteTo.File(new JsonFormatter(), "log.txt")
+                .MinimumLevel.Debug()
+                .CreateLogger();
+
             if (CacheEnabled)
             {
                 this.EnableLightningCache(container.Resolve<IRouteResolver>(), ApplicationPipelines, new DefaultCacheKeyGenerator(new[] { "query", "form", "accept" }));
                 pipelines.AfterRequest.AddItemToStartOfPipeline(ConfigureCache);
             }
+        }
+
+        protected override void ConfigureRequestContainer(TinyIoCContainer container, NancyContext context)
+        {
+            container.Register((tinyIoc, namedParams) => context.GetContextualLogger());
         }
 
         public void ConfigureCache(NancyContext context)
