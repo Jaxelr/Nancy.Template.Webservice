@@ -1,7 +1,6 @@
 ﻿using Nancy;
 using Nancy.Bootstrapper;
-using Nancy.LightningCache.CacheKey;
-using Nancy.LightningCache.Extensions;
+using Nancy.RapidCache.Extensions;
 using Nancy.Routing;
 using Nancy.Serilog;
 using Nancy.TinyIoc;
@@ -35,7 +34,7 @@ namespace Api
 
             if (CacheEnabled)
             {
-                this.EnableLightningCache(container.Resolve<IRouteResolver>(), ApplicationPipelines, new DefaultCacheKeyGenerator(new[] { "query", "form", "accept" }));
+                this.EnableRapidCache(container.Resolve<IRouteResolver>(), ApplicationPipelines);
                 pipelines.AfterRequest.AddItemToStartOfPipeline(ConfigureCache);
             }
         }

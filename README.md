@@ -8,7 +8,7 @@ The following dependencies are included:
 
 * [Nancy](https://github.com/NancyFx/Nancy)
 * [Newtonsoft.Json](https://github.com/JamesNK/Newtonsoft.Json)
-* [LightningCache](https://github.com/Jaxelr/Nancy.LightningCache.AspNetCore)
+* [RapidCache](https://github.com/Jaxelr/Nancy.RapidCache)
 * [Microsoft.AspNetCore.HealthChecks](https://github.com/dotnet-architecture/HealthChecks)
 * [Nancy.Serilog.Core](https://github.com/Zaid-Ajaj/Nancy.Serilog)
 * [Insight.Database](https://github.com/jonwagner/Insight.Database)
