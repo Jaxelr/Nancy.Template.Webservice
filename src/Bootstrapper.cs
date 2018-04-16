@@ -34,21 +34,19 @@ namespace Api
 
             if (CacheEnabled)
             {
-                this.EnableRapidCache(container.Resolve<IRouteResolver>(), ApplicationPipelines);
+                this.EnableRapidCache(container.Resolve<IRouteResolver>(), ApplicationPipelines, new[] { "query", "form", "accept" });
                 pipelines.AfterRequest.AddItemToStartOfPipeline(ConfigureCache);
             }
         }
 
         protected override void ConfigureRequestContainer(TinyIoCContainer container, NancyContext context)
-        {
-            container.Register((tinyIoc, namedParams) => context.GetContextualLogger());
-        }
+            => container.Register((tinyIoc, namedParams) => context.GetContextualLogger());
 
         public void ConfigureCache(NancyContext context)
         {
             if (context.Response.StatusCode == HttpStatusCode.OK && context.Request.Method == "GET")
             {
-                context.Response = context.Response.AsCacheable(DateTime.Now.AddSeconds(CacheTimespan));
+                context.Response = context.Response.AsCacheable(DateTime.UtcNow.AddSeconds(CacheTimespan));
             }
         }
     }
