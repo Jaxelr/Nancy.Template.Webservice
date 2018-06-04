@@ -2,7 +2,7 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/5jqqkr53l24b6ccj?svg=true)](https://ci.appveyor.com/project/Jaxelr/nancy-template-aspnetcore)
 
-These projects target dotnet core 2.0.
+These projects target dotnet core 2.1.
 
 The following dependencies are included:
 

@@ -11,7 +11,7 @@ namespace Api.Modules
             : base(routeCacheProvider,
               "/api/docs",                      // where module should be located
               "Hello Api",                      // title
-              "v1.0",                             // api version
+              "v1.0",                           // api version
               "localhost:50657",                // host
               "/api",                           // api base url (ie /dev, /api)
               "http")                           // schemes

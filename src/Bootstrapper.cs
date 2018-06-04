@@ -39,8 +39,8 @@ namespace Api
             }
         }
 
-        protected override void ConfigureRequestContainer(TinyIoCContainer container, NancyContext context)
-            => container.Register((tinyIoc, namedParams) => context.GetContextualLogger());
+        protected override void ConfigureRequestContainer(TinyIoCContainer container, NancyContext context) => 
+            container.Register((tinyIoc, namedParams) => context.GetContextualLogger());
 
         public void ConfigureCache(NancyContext context)
         {
