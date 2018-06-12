@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>Nancy.Template.Webservice</id>
+    <version>0.1.0</version>
+    <title>Nancy web service template</title>
+    <description>Nancy template for web services including a few helpful libraries</description>
+    <authors>Jaxel Rojas</authors>
+    <owners>Jaxel Rojas</owners>
+    <projectUrl>https://github.com/Jaxelr/Nancy.Template.Core</projectUrl>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <releaseNotes>Initial template version</releaseNotes>
+    <copyright>2018</copyright>
+    <tags>template;nancyfx;webservice;</tags>
+    <language>en-US</language>
+    <packageTypes>
+      <packageType name="Template" />
+    </packageTypes>
+  </metadata>
+  <files>
+    <file src="Content\**" exclude="**\.vs\**;**\bin\**;**\obj\**;**\*.user;**\*.lock.json;**\.vscode\**" target="content"/>
+  </files>
+</package>

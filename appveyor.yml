@@ -5,12 +5,26 @@ branches:
   - master
 init:
   - cmd: git config --global core.autocrlf true
+configuration:
+  - Release
 before_build:
   - cmd: dotnet --version
 build_script:
-  - cmd: dotnet publish ./src/Nancy.Template.WebService.csproj -v quiet
+  - cmd: dotnet publish ./Content/Nancy.Template.Webservice.sln -v quiet
 test_script:
-  - cmd: dotnet test ./tests/Nancy.Template.WebService.Tests.csproj  -v quiet 
+  - cmd: dotnet test ./Content/tests/Nancy.Template.WebService.Test.csproj  -v quiet 
+after_build:
+  - cmd: nuget pack -verbosity quiet 
 skip_commits:
   files:
     - '**/*.md'
+artifacts:
+  - path: '**/*.nupkg'
+deploy:
+- provider: NuGet
+  server: https://www.myget.org/F/nancy-template-webservice/api/v2/package
+  on:
+    branch: master  
+  api_key:
+    secure: 6xhHSsDvB9arsrSDLuynnbxaVS+BwaoJU96RfQenc5FOnUYvP8SHM6kbvrmpvja2
+  skip_symbols: true
