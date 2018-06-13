@@ -30,7 +30,7 @@ To uninstall simply execute:
 
 `dotnet new -u "Nancy.Template.Webservice"`
 
-These projects target dotnet core 2.1. The following libraries are included as part of the projects:
+These projects targets dotnet core 2.1. The following libraries are included as part of the projects:
 
 * [Nancy](https://github.com/NancyFx/Nancy)
 * [Nancy.Metadata.Swagger.Core](https://github.com/Jaxelr/Nancy.Metadata.Swagger.Core)
