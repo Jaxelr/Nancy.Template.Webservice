@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>Nancy.Template.Webservice</id>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
     <title>Nancy template for Web services</title>
     <description>Nancy template for web services including a few helpful libraries, for the full list of the libraries see the github page on the project url.</description>
     <authors>Jaxel Rojas</authors>
@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/Jaxelr/Nancy.Template.Core</projectUrl>
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <releaseNotes>Initial template version using dotnet 2.1</releaseNotes>
+    <releaseNotes>Enhancements using dotnet 2.1</releaseNotes>
     <copyright>2018</copyright>
     <tags>template;nancyfx;webservice;</tags>
     <language>en-US</language>
