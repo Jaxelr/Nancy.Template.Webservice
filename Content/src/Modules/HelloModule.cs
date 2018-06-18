@@ -1,6 +1,6 @@
 ﻿using Api.Helpers;
 using Api.Model.Operations;
-using Api.Repository;
+using Api.Repositories;
 using Nancy;
 using Nancy.Metadata.Modules;
 using Nancy.Metadata.Swagger.Core;

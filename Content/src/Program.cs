@@ -7,9 +7,9 @@ namespace Nancy.Template.WebService
 {
     public class Program
     {
-        public static void Main(string[] args) => BuildWebHost(args).Run();
+        public static void Main(string[] args) => CreateWebHostBuilder(args).Build().Run();
 
-        public static IWebHost BuildWebHost(string[] args) =>
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
                 .UseContentRoot(Directory.GetCurrentDirectory())
@@ -22,7 +22,6 @@ namespace Nancy.Template.WebService
                         .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true)
                         .AddEnvironmentVariables();
                 })
-                .UseIISIntegration()
-                .Build();
+                .UseIISIntegration();
     }
 }

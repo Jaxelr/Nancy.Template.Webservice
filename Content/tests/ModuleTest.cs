@@ -1,5 +1,5 @@
 using Api.Modules;
-using Api.Repository;
+using Api.Repositories;
 using Api.Validators;
 using Nancy.Testing;
 using NSubstitute;

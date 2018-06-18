@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Api.Repository
+namespace Api.Repositories
 {
     public class HelloRepository : IHelloRepository
     {

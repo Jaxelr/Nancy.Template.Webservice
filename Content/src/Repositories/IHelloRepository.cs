@@ -1,4 +1,4 @@
-﻿namespace Api.Repository
+﻿namespace Api.Repositories
 {
     public interface IHelloRepository
     {

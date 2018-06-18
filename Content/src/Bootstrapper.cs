@@ -1,24 +1,26 @@
-﻿using Nancy;
+﻿using Api.Helpers;
+using Api.Repositories;
+using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.RapidCache.Extensions;
 using Nancy.Routing;
 using Nancy.Serilog;
 using Nancy.TinyIoc;
+using Newtonsoft.Json;
 using Serilog;
 using Serilog.Formatting.Json;
 using System;
+using System.Diagnostics;
 
 namespace Api
 {
     public class Bootstrapper : DefaultNancyBootstrapper
     {
-        private readonly int CacheTimespan;
-        private readonly bool CacheEnabled;
+        private readonly AppSettings _settings;
 
         public Bootstrapper(AppSettings settings)
         {
-            CacheEnabled = settings.Cache.CacheEnabled;
-            CacheTimespan = settings.Cache.CacheTimespan;
+            _settings = settings;
         }
 
         protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
@@ -32,21 +34,32 @@ namespace Api
                 .MinimumLevel.Debug()
                 .CreateLogger();
 
-            if (CacheEnabled)
+            if (_settings.Cache.CacheEnabled)
             {
                 this.EnableRapidCache(container.Resolve<IRouteResolver>(), ApplicationPipelines, new[] { "query", "form", "accept" });
                 pipelines.AfterRequest.AddItemToStartOfPipeline(ConfigureCache);
             }
         }
 
-        protected override void ConfigureRequestContainer(TinyIoCContainer container, NancyContext context) => 
+        protected override void ConfigureApplicationContainer(TinyIoCContainer container)
+        {
+            base.ConfigureApplicationContainer(container);
+
+            container.Register<JsonSerializer, CustomJsonSerializer>();
+
+            container.Register(_settings);
+            container.Register<Stopwatch, Stopwatch>();
+            container.Register<IHelloRepository, HelloRepository>();
+        }
+
+        protected override void ConfigureRequestContainer(TinyIoCContainer container, NancyContext context) =>
             container.Register((tinyIoc, namedParams) => context.GetContextualLogger());
 
-        public void ConfigureCache(NancyContext context)
+        private void ConfigureCache(NancyContext context)
         {
-            if (context.Response.StatusCode == HttpStatusCode.OK && context.Request.Method == "GET")
+            if (context.Response.StatusCode == HttpStatusCode.OK && (context.Request.Method == "GET" || context.Request.Method == "HEAD"))
             {
-                context.Response = context.Response.AsCacheable(DateTime.UtcNow.AddSeconds(CacheTimespan));
+                context.Response = context.Response.AsCacheable(DateTime.UtcNow.AddSeconds(_settings.Cache.CacheTimespan));
             }
         }
     }
