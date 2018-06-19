@@ -43,6 +43,8 @@ These projects targets dotnet core 2.1. The following libraries are included as 
 * [Xunit](https://github.com/xunit/xunit)
 * [NSubstitute](https://github.com/nsubstitute/NSubstitute)
 
+For further information on custom templates, refer to the [Microsoft documentation][docs].
+
 
 [mit-img]: http://img.shields.io/badge/License-MIT-blue.svg
 [mit]: https://github.com/Jaxelr/VueSimpleTemplate/blob/master/LICENSE
@@ -52,3 +54,4 @@ These projects targets dotnet core 2.1. The following libraries are included as 
 [nuget]: https://www.nuget.org/packages/Nancy.Template.Webservice/
 [myget-img]: https://img.shields.io/myget/nancy-template-webservice/v/Nancy.Template.Webservice.svg
 [myget]: https://www.myget.org/feed/nancy-template-webservice/package/nuget/Nancy.Template.Webservice
+[docs]: https://docs.microsoft.com/en-us/dotnet/core/tools/custom-templates
