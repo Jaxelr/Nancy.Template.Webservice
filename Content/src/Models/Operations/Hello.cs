@@ -1,9 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using Api.Models.Entities;
+using Newtonsoft.Json;
 
 namespace Api.Model.Operations
 {
     [JsonObject(MemberSerialization.OptOut)]
-    public class Hello
+    public class HelloRequest
     {
         public string Name { get; set; }
     }
@@ -11,6 +12,6 @@ namespace Api.Model.Operations
     [JsonObject(MemberSerialization.OptOut)]
     public class HelloResponse
     {
-        public string Result { get; set; }
+        public Hello Response { get; set; }
     }
 }

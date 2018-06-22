@@ -1,5 +1,6 @@
 ﻿using Api.Helpers;
 using Api.Model.Operations;
+using Api.Models.Entities;
 using Api.Repositories;
 using Nancy;
 using Nancy.Metadata.Modules;
@@ -32,9 +33,9 @@ namespace Api.Modules
             _watch = watch;
             _watch.Restart();
 
-            this.GetHandler<Hello, HelloResponse>(nameof(Hello), Hello);
+            this.GetHandler<HelloRequest, HelloResponse>(nameof(Hello), HelloOp);
         }
 
-        public HelloResponse Hello(Hello user) => new HelloResponse { Result = _repo.SayHello(user.Name) };
+        public HelloResponse HelloOp(HelloRequest user) => new HelloResponse { Response = _repo.SayHello(user.Name) };
     }
 }

@@ -1,7 +1,9 @@
-﻿namespace Api.Repositories
+﻿using Api.Models.Entities;
+
+namespace Api.Repositories
 {
     public interface IHelloRepository
     {
-        string SayHello(string name);
+        Hello SayHello(string name);
     }
 }
