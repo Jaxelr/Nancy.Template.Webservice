@@ -1,6 +1,7 @@
 using Api.Modules;
 using Api.Repositories;
 using Api.Validators;
+using Nancy;
 using Nancy.Testing;
 using NSubstitute;
 using System.Diagnostics;
