@@ -4,6 +4,7 @@ using Nancy.Responses.Negotiation;
 using Nancy.Validation;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Api.Helpers
 {
@@ -45,11 +46,32 @@ namespace Api.Helpers
         public static void DeleteHandler<TIn, TOut>(this NancyModule module, string name, string path, Func<TIn, TOut> handler)
             => module.Delete(path, r => RunHandler(module, handler), name: name);
 
+        public static void GetHandler<TIn>(this NancyModule module, string name, string path, Func<TIn, Task<object>> handler)
+            => module.Get(path, r => RunHandlerAsync(module, handler), name: name);
+
+        public static void PostHandler<TIn>(this NancyModule module, string name, string path, Func<TIn, Task<object>> handler)
+            => module.Post(path, r => RunHandlerAsync(module, handler), name: name);
+
+        public static void DeleteHandler<TIn>(this NancyModule module, string name, string path, Func<TIn, Task<object>> handler)
+            => module.Delete(path, r => RunHandlerAsync(module, handler), name: name);
+
         public static object RunHandler<TOut>(this NancyModule module, Func<TOut> handler)
         {
             try
             {
                 return handler();
+            }
+            catch (HttpException hEx)
+            {
+                return module.Negotiate.WithStatusCode(hEx.StatusCode).WithModel(hEx.Content);
+            }
+        }
+
+        public static async Task<object> RunHandlerAsync(this NancyModule module, Func<Task<object>> handler)
+        {
+            try
+            {
+                return await handler();
             }
             catch (HttpException hEx)
             {
@@ -76,6 +98,32 @@ namespace Api.Helpers
                 }
 
                 return handler(model);
+            }
+            catch (HttpException hEx)
+            {
+                return module.Negotiate.WithStatusCode(hEx.StatusCode).WithModel(hEx.Content);
+            }
+        }
+
+        public static async Task<object> RunHandlerAsync<TIn>(this NancyModule module, Func<TIn, Task<object>> handler)
+        {
+            try
+            {
+                TIn model;
+                try
+                {
+                    model = module.BindAndValidate<TIn>();
+                    if (!module.ModelValidationResult.IsValid)
+                    {
+                        return module.Negotiate.RespondWithValidationFailure(module.ModelValidationResult);
+                    }
+                }
+                catch (ModelBindingException)
+                {
+                    return module.Negotiate.RespondWithValidationFailure("The Model is not binding to the Request");
+                }
+
+                return await handler(model);
             }
             catch (HttpException hEx)
             {
