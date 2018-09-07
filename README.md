@@ -14,6 +14,17 @@ Dotnet template library used to create web services using the Nancy web Framewor
 | :---: | :---: |
 | [![NuGet][nuget-img]][nuget] | [![MyGet][myget-img]][myget] |
 
+### Purpose
+
+At my dayjob i tend to need a quick scaffolder for web services that provider various types of data structures in a brief time. Sometimes as a prototype, other times for production purposes, so i developed this dotnet template in order to use it as a quick checklist of the needs i accustome to include on my WS. It is very opinionated, but so far has given me the results i need, with decent performance.  
+
+It can be customized to use:
+
+1. multiple types of logs (as based on the serilog infrastructure).
+1. different types of caches (as based on the rapid cache lib).
+1. other types of ORMs (i. e. Dapper) by replacing the Repository class with byo.
+1. alternatively move from swagger to openapi replace the nancy.metadata.swagger with nancy.metadata.openapi.
+
 ### Install
 
 For installation via the dotnet install command:
