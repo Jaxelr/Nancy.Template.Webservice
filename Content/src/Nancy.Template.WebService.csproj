@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Entities\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
@@ -17,7 +16,7 @@
     <PackageReference Include="Nancy" Version="2.0.0-clinteastwood" />
     <PackageReference Include="Nancy.Metadata.Modules" Version="2.0.0-clinteastwood" />
     <PackageReference Include="Nancy.Metadata.Swagger.Core" Version="0.1.2" />
-    <PackageReference Include="Nancy.RapidCache" Version="0.2.1" />
+    <PackageReference Include="Nancy.RapidCache" Version="0.3.0" />
     <PackageReference Include="Nancy.Serilog.Core" Version="1.2.0" />
     <PackageReference Include="Nancy.Validation.FluentValidation" Version="2.0.0-clinteastwood" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
