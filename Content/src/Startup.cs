@@ -11,16 +11,24 @@ namespace Nancy.Template.WebService
 {
     public class Startup
     {
-        private IConfiguration Configuration { get; }
+        private IConfiguration Configuration { get; set; }
         private readonly AppSettings Settings = new AppSettings();
 
-        public Startup(IConfiguration configuration)
+        public Startup(IHostingEnvironment env)
         {
-            Configuration = configuration;
+              var builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+                .AddEnvironmentVariables();
+            Configuration = builder.Build();
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
+            // Add framework services.
+            services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
+
             //HealthChecks
             services.AddHealthChecks(checks =>
             {
@@ -43,9 +51,9 @@ namespace Nancy.Template.WebService
             else
             {
                 app.UseHsts();
+                app.UseHttpsRedirection();
             }
 
-            app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseOwin(x => x.UseNancy(options => options.Bootstrapper = new Api.Bootstrapper(Settings)));
         }
