@@ -59,8 +59,8 @@ For further information on custom templates, refer to the [Microsoft documentati
 
 [mit-img]: http://img.shields.io/badge/License-MIT-blue.svg
 [mit]: https://github.com/Jaxelr/VueSimpleTemplate/blob/master/LICENSE
-[build-img]: https://ci.appveyor.com/api/projects/status/5jqqkr53l24b6ccj?svg=true
-[build]: https://ci.appveyor.com/project/Jaxelr/nancy-template-aspnetcore
+[build-img]: https://ci.appveyor.com/api/projects/status/5jqqkr53l24b6ccj/branch/master?svg=true
+[build]: https://ci.appveyor.com/project/Jaxelr/nancy-template-aspnetcore/branch/master
 [nuget-img]: https://img.shields.io/nuget/v/Nancy.Template.Webservice.svg
 [nuget]: https://www.nuget.org/packages/Nancy.Template.Webservice/
 [myget-img]: https://img.shields.io/myget/nancy-template-webservice/v/Nancy.Template.Webservice.svg
