@@ -1,5 +1,5 @@
 FROM microsoft/aspnetcore
-LABEL name="NancyWebService"
+LABEL name="Nancy.Template.WebService"
 ENTRYPOINT ["dotnet", "Nancy.Template.WebService.dll"]
 ARG source=.
 WORKDIR /app

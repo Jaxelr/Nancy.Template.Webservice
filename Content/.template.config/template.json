@@ -44,7 +44,6 @@
       ]
     }],
     "primaryOutputs": [
-      { "path": "src\\Nancy.Template.WebService.csproj" },
-      { "path": "tests\\Nancy.Template.WebService.Test.csproj" }
+      { "path": "Nancy.Template.WebService.sln" }
     ]
 }
