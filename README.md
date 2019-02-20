@@ -16,7 +16,7 @@ Dotnet template library used to create web services using the Nancy web Framewor
 
 ### Purpose
 
-At my dayjob i tend to need a quick scaffolder for web services that provider various types of data structures in a brief time. Sometimes as a prototype, other times for production purposes, so i developed this dotnet template in order to use it as a quick checklist of the needs i accustome to include on my WS. It is very opinionated, but so far has given me the results i need, with decent performance.  
+I tend to need a quick scaffolder for web services that provide various types of data structures in a brief time. Sometimes as a prototype, other times for production purposes, so i developed this dotnet template in order to use it as a quick checklist of the needs i accustome to include on my WS. It is very opinionated, but so far has given me the results i need, with decent performance.
 
 It can be customized to use:
 
@@ -41,7 +41,7 @@ To uninstall simply execute:
 
 `dotnet new -u "Nancy.Template.Webservice"`
 
-These projects targets dotnet core 2.1. The following libraries are included as part of the projects:
+These projects target dotnet core 2.2. The following libraries are included as part of the projects:
 
 * [Nancy](https://github.com/NancyFx/Nancy)
 * [Nancy.Metadata.Swagger.Core](https://github.com/Jaxelr/Nancy.Metadata.Swagger.Core)
@@ -53,6 +53,8 @@ These projects targets dotnet core 2.1. The following libraries are included as 
 * [Insight.Database](https://github.com/jonwagner/Insight.Database)
 * [Xunit](https://github.com/xunit/xunit)
 * [NSubstitute](https://github.com/nsubstitute/NSubstitute)
+* [Altcover](https://github.com/SteveGilham/altcover)
+* [ReportGenerator](https://github.com/danielpalme/ReportGenerator)
 
 For further information on custom templates, refer to the [Microsoft documentation][docs].
 
