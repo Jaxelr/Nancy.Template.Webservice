@@ -1,15 +1,17 @@
-﻿using Nancy;
+﻿using Api.Models.Entities;
+using Nancy;
 using Nancy.ModelBinding;
 using Nancy.Responses.Negotiation;
 using Nancy.Validation;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Api.Helpers
 {
     public static class ModuleExtensions
     {
+        private static string ModelBindingErrorMessage => @"The model is not binding to the request";
+
         public static void GetHandler<TOut>(this NancyModule module, string path, Func<TOut> handler)
             => module.GetHandler(path, path, handler);
 
@@ -61,9 +63,9 @@ namespace Api.Helpers
             {
                 return handler();
             }
-            catch (HttpException hEx)
+            catch (Exception Ex)
             {
-                return module.Negotiate.WithStatusCode(hEx.StatusCode).WithModel(hEx.Content);
+                return module.Negotiate.RespondWithFailure(Ex);
             }
         }
 
@@ -73,9 +75,9 @@ namespace Api.Helpers
             {
                 return await handler();
             }
-            catch (HttpException hEx)
+            catch (Exception Ex)
             {
-                return module.Negotiate.WithStatusCode(hEx.StatusCode).WithModel(hEx.Content);
+                return module.Negotiate.RespondWithFailure(Ex);
             }
         }
 
@@ -94,14 +96,14 @@ namespace Api.Helpers
                 }
                 catch (ModelBindingException)
                 {
-                    return module.Negotiate.RespondWithValidationFailure("The Model is not binding to the Request");
+                    return module.Negotiate.RespondWithValidationFailure(ModelBindingErrorMessage);
                 }
 
                 return handler(model);
             }
-            catch (HttpException hEx)
+            catch (Exception Ex)
             {
-                return module.Negotiate.WithStatusCode(hEx.StatusCode).WithModel(hEx.Content);
+                return module.Negotiate.RespondWithFailure(Ex);
             }
         }
 
@@ -120,14 +122,14 @@ namespace Api.Helpers
                 }
                 catch (ModelBindingException)
                 {
-                    return module.Negotiate.RespondWithValidationFailure("The Model is not binding to the Request");
+                    return module.Negotiate.RespondWithValidationFailure(ModelBindingErrorMessage);
                 }
 
                 return await handler(model);
             }
-            catch (HttpException hEx)
+            catch (Exception Ex)
             {
-                return module.Negotiate.WithStatusCode(hEx.StatusCode).WithModel(hEx.Content);
+                return module.Negotiate.RespondWithFailure(Ex);
             }
         }
 
@@ -148,39 +150,14 @@ namespace Api.Helpers
                 .WithModel(model)
                 .WithStatusCode(HttpStatusCode.BadRequest);
         }
-    }
 
-    public class ValidationFailedResponse
-    {
-        public List<string> Messages { get; set; }
-
-        public ValidationFailedResponse()
+        public static Negotiator RespondWithFailure(this Negotiator negotiate, Exception exception)
         {
-        }
+            var model = new FailedResponse(exception);
 
-        public ValidationFailedResponse(ModelValidationResult validationResult)
-        {
-            Messages = new List<string>();
-            ErrorsToStrings(validationResult);
-        }
-
-        public ValidationFailedResponse(string message)
-        {
-            Messages = new List<string>
-            {
-                message
-            };
-        }
-
-        private void ErrorsToStrings(ModelValidationResult validationResult)
-        {
-            foreach (var errorGroup in validationResult.Errors)
-            {
-                foreach (var error in errorGroup.Value)
-                {
-                    Messages.Add(error.ErrorMessage);
-                }
-            }
+            return negotiate
+                .WithModel(model)
+                .WithStatusCode(HttpStatusCode.InternalServerError);
         }
     }
 }
