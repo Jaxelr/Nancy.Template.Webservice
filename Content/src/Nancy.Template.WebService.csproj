@@ -20,7 +20,7 @@
     <PackageReference Include="Nancy.RapidCache" Version="0.3.1" />
     <PackageReference Include="Nancy.Serilog.Core" Version="1.2.0" />
     <PackageReference Include="Nancy.Validation.FluentValidation" Version="2.0.0-clinteastwood" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
     <PackageReference Include="Serilog.Sinks.File" Version="4.0.0" />
   </ItemGroup>
 
