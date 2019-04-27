@@ -1,4 +1,4 @@
-version: '0.1.4.{build}'
+version: '0.2.0.{build}'
 image: Visual Studio 2017
 branches:
   only:
@@ -24,8 +24,7 @@ deploy:
 - provider: NuGet
   server: https://www.myget.org/F/nancy-template-webservice/api/v2/package
   on:
-    branch: master  
-    appveyor_repo_tag: true
+    branch: develop  
   api_key:
     secure: 6xhHSsDvB9arsrSDLuynnbxaVS+BwaoJU96RfQenc5FOnUYvP8SHM6kbvrmpvja2
   skip_symbols: true
