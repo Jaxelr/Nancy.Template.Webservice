@@ -35,6 +35,10 @@ Then you can freely use it by executing the following dotnet command:
 
 `dotnet new nancyws -o MySampleWs`
 
+For myget installations you can specify the source on the dotnet command:
+
+`dotnet new -i "Nancy.Template.Webservice::*" --nuget-source https://www.myget.org/F/nancy-template-webservice/api/v3/index.json`
+
 ### Uninstall
 
 To uninstall simply execute:
