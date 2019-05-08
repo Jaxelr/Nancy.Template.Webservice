@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="altcover" Version="5.2.667" />
+    <PackageReference Include="altcover" Version="5.3.675" />
     <PackageReference Include="ReportGenerator" Version="4.1.5" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.0.1" />
     <PackageReference Include="Nancy.Testing" Version="2.0.0" />
