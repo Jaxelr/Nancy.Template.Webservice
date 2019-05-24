@@ -16,7 +16,7 @@
     <PackageReference Include="Microsoft.AspNetCore.HealthChecks" Version="1.0.0" />
     <PackageReference Include="Nancy" Version="2.0.0" />
     <PackageReference Include="Nancy.Metadata.Modules" Version="2.0.0" />
-    <PackageReference Include="Nancy.Metadata.Swagger.Core" Version="0.2.0" />
+    <PackageReference Include="Nancy.Metadata.Swagger.Core" Version="0.3.0" />
     <PackageReference Include="Nancy.RapidCache" Version="0.3.2" />
     <PackageReference Include="Nancy.Serilog" Version="2.0.0" />
     <PackageReference Include="Nancy.Validation.FluentValidation" Version="2.0.0" />
