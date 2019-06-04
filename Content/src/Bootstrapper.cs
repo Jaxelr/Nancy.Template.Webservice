@@ -16,11 +16,11 @@ namespace Api
 {
     public class Bootstrapper : DefaultNancyBootstrapper
     {
-        private readonly AppSettings _settings;
+        private readonly AppSettings settings;
 
         public Bootstrapper(AppSettings settings)
         {
-            _settings = settings;
+            this.settings = settings;
         }
 
         protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
@@ -34,7 +34,7 @@ namespace Api
                 .MinimumLevel.Debug()
                 .CreateLogger();
 
-            if (_settings.Cache.CacheEnabled)
+            if (settings.Cache.CacheEnabled)
             {
                 this.EnableRapidCache(container.Resolve<IRouteResolver>(), ApplicationPipelines, new[] { "query", "form", "accept" });
                 pipelines.AfterRequest.AddItemToStartOfPipeline(ConfigureCache);
@@ -47,7 +47,7 @@ namespace Api
 
             container.Register<JsonSerializer, CustomJsonSerializer>();
 
-            container.Register(_settings);
+            container.Register(settings);
             container.Register<Stopwatch, Stopwatch>();
             container.Register<IHelloRepository, HelloRepository>();
         }
@@ -59,7 +59,7 @@ namespace Api
         {
             if (context.Response.StatusCode == HttpStatusCode.OK && (context.Request.Method == "GET" || context.Request.Method == "HEAD"))
             {
-                context.Response = context.Response.AsCacheable(DateTime.UtcNow.AddSeconds(_settings.Cache.CacheTimespan));
+                context.Response = context.Response.AsCacheable(DateTime.UtcNow.AddSeconds(settings.Cache.CacheTimespan));
             }
         }
     }

@@ -12,7 +12,7 @@ namespace Nancy.Template.WebService
     public class Startup
     {
         private IConfiguration Configuration { get; set; }
-        private readonly AppSettings Settings = new AppSettings();
+        private readonly AppSettings settings = new AppSettings();
 
         public Startup(IHostingEnvironment env)
         {
@@ -27,7 +27,7 @@ namespace Nancy.Template.WebService
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_2);
 
             //HealthChecks
             services.AddHealthChecks(checks =>
@@ -37,9 +37,9 @@ namespace Nancy.Template.WebService
             });
 
             //Extract the AppSettings information from the appsettings config.
-            Configuration.GetSection(nameof(AppSettings)).Bind(Settings);
+            Configuration.GetSection(nameof(AppSettings)).Bind(settings);
 
-            services.AddSingleton(Settings);
+            services.AddSingleton(settings);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -55,7 +55,7 @@ namespace Nancy.Template.WebService
             }
 
             app.UseStaticFiles();
-            app.UseOwin(x => x.UseNancy(options => options.Bootstrapper = new Api.Bootstrapper(Settings)));
+            app.UseOwin(x => x.UseNancy(options => options.Bootstrapper = new Api.Bootstrapper(settings)));
         }
     }
 }
