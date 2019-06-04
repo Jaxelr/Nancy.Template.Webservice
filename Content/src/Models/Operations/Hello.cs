@@ -1,7 +1,7 @@
 ﻿using Api.Models.Entities;
 using Newtonsoft.Json;
 
-namespace Api.Model.Operations
+namespace Api.Models.Operations
 {
     [JsonObject(MemberSerialization.OptOut)]
     public class HelloRequest

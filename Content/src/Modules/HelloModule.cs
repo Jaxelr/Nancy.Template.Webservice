@@ -1,5 +1,5 @@
 ﻿using Api.Helpers;
-using Api.Model.Operations;
+using Api.Models.Operations;
 using Api.Models.Entities;
 using Api.Repositories;
 using Nancy;
@@ -24,18 +24,18 @@ namespace Api.Modules
 
     public class SampleModule : NancyModule
     {
-        private Stopwatch _watch;
-        private IHelloRepository _repo;
+        private readonly Stopwatch watch;
+        private readonly IHelloRepository repo;
 
         public SampleModule(Stopwatch watch, IHelloRepository repo) : base("api")
         {
-            _repo = repo;
-            _watch = watch;
-            _watch.Restart();
+            this.repo = repo;
+            this.watch = watch;
+            this.watch.Restart();
 
             this.GetHandler<HelloRequest, HelloResponse>(nameof(Hello), HelloOp);
         }
 
-        public HelloResponse HelloOp(HelloRequest user) => new HelloResponse { Response = _repo.SayHello(user.Name) };
+        public HelloResponse HelloOp(HelloRequest user) => new HelloResponse { Response = repo.SayHello(user.Name) };
     }
 }
