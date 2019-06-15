@@ -1,4 +1,4 @@
-# Nancy.Template.Core [![Mit License][mit-img]][mit]
+# Nancy.Template.Webservice [![Mit License][mit-img]][mit]
 
 Dotnet template library used to create web services using the Nancy web Framework.
 
