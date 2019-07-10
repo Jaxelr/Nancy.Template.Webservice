@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="Insight.Database" Version="6.2.9" />
-    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.5" AllowExplicitVersion="true" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.6" AllowExplicitVersion="true" />
     <PackageReference Include="Microsoft.AspNetCore.HealthChecks" Version="1.0.0" />
     <PackageReference Include="Nancy" Version="2.0.0" />
     <PackageReference Include="Nancy.Metadata.Modules" Version="2.0.0" />
