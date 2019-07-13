@@ -4,21 +4,21 @@ using Api.Models.Entities;
 using Api.Repositories;
 using Nancy;
 using Nancy.Metadata.Modules;
-using Nancy.Metadata.Swagger.Core;
-using Nancy.Metadata.Swagger.Fluent;
+using Nancy.Metadata.OpenApi.Core;
+using Nancy.Metadata.OpenApi.Fluent;
 using System.Diagnostics;
 
 namespace Api.Modules
 {
-    public class SampleMetadataModule : MetadataModule<SwaggerRouteMetadata>
+    public class SampleMetadataModule : MetadataModule<OpenApiRouteMetadata>
     {
         public SampleMetadataModule()
         {
-            Describe[nameof(Hello)] = desc => new SwaggerRouteMetadata(desc)
+            Describe[nameof(Hello)] = desc => new OpenApiRouteMetadata(desc)
                 .With(i => i.WithResponseModel("200", typeof(HelloResponse), "Hello Response")
                 .WithDescription("This operation returns the hello world message", tags: new string[] { "Hello" })
                 .WithResponseModel("400", typeof(string), "Failed Validation Response")
-                .WithRequestParameter("name", description: "A string to return as part of hello world", loc: "query", type: "string"));
+                .WithRequestParameter("name", description: "A string to return as part of hello world", loc: "query", type: typeof(string)));
         }
     }
 
