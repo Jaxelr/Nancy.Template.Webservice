@@ -18,7 +18,7 @@ namespace Api.Modules
                 .With(i => i.WithResponseModel("200", typeof(HelloResponse), "Hello Response")
                 .WithDescription("This operation returns the hello world message", tags: new string[] { "Hello" })
                 .WithResponseModel("400", typeof(string), "Failed Validation Response")
-                .WithRequestParameter("name", description: "A string to return as part of hello world", loc: "query", type: typeof(string)));
+                .WithRequestParameter("name", description: "A string to return as part of hello world", loc: Loc.Query, type: typeof(string)));
         }
     }
 

@@ -8,7 +8,7 @@ namespace Api.Modules
 {
     public class DocsModule : OpenApiDocsModuleBase
     {
-        public static Server Server => new Server() { Description = "Localhost", Url = "localhost:50657" };
+        public static Server Server => new Server() { Description = "Localhost", Url = "http://localhost:50657" };
 
         public DocsModule(IRouteCacheProvider routeCacheProvider)
             : base(routeCacheProvider,
