@@ -1,10 +1,12 @@
 using System.Diagnostics;
-using Api.Validators;
+using Nancy;
+using Nancy.Template.WebService.Validators;
 using Nancy.Template.WebService.Modules;
 using Nancy.Template.WebService.Repositories;
 using Nancy.Testing;
 using NSubstitute;
 using Xunit;
+
 
 namespace Nancy.Template.WebService.Tests
 {

@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using Nancy;
 using Nancy.Metadata.Modules;
 using Nancy.Metadata.OpenApi.Core;
 using Nancy.Metadata.OpenApi.Fluent;

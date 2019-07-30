@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using Nancy.Template.WebService.Models.Operations;
 
-namespace Api.Validators
+namespace Nancy.Template.WebService.Validators
 {
     public class HelloValidator : AbstractValidator<HelloRequest>
     {
