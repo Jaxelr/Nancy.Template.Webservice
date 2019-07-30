@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Api.Models.Entities
+namespace Nancy.Template.WebService.Models.Entities
 {
     [JsonObject(MemberSerialization.OptOut)]
     public class Hello

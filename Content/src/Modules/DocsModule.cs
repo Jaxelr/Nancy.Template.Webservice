@@ -1,10 +1,9 @@
-﻿using Nancy;
+﻿using System.Threading.Tasks;
 using Nancy.Metadata.OpenApi.Model;
 using Nancy.Metadata.OpenApi.Modules;
 using Nancy.Routing;
-using System.Threading.Tasks;
 
-namespace Api.Modules
+namespace Nancy.Template.WebService.Modules
 {
     public class DocsModule : OpenApiDocsModuleBase
     {

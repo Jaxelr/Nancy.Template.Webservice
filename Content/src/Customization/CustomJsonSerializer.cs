@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace Api.Helpers
+namespace Nancy.Template.WebService.Customization
 {
     public class CustomJsonSerializer : JsonSerializer
     {

@@ -1,7 +1,7 @@
-﻿using Api.Models.Entities;
-using System;
+﻿using System;
+using Nancy.Template.WebService.Models.Entities;
 
-namespace Api.Repositories
+namespace Nancy.Template.WebService.Repositories
 {
     public class HelloRepository : IHelloRepository
     {

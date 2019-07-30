@@ -1,10 +1,9 @@
-using Api.Modules;
-using Api.Repositories;
+using System.Diagnostics;
 using Api.Validators;
-using Nancy;
+using Nancy.Template.WebService.Modules;
+using Nancy.Template.WebService.Repositories;
 using Nancy.Testing;
 using NSubstitute;
-using System.Diagnostics;
 using Xunit;
 
 namespace Nancy.Template.WebService.Tests
@@ -21,7 +20,7 @@ namespace Nancy.Template.WebService.Tests
             string HelloPath = Fakes.FakeProps.HelloPath;
             string Accept = Fakes.FakeProps.AcceptHeader;
 
-            repository.SayHello(Name).Returns(new Api.Models.Entities.Hello { Name = $"Hello, {Name}" });
+            repository.SayHello(Name).Returns(new Models.Entities.Hello { Name = $"Hello, {Name}" });
 
             var browser = new Browser(with =>
             {

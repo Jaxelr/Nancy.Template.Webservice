@@ -1,7 +1,7 @@
 ﻿using Nancy.Validation;
 using System.Collections.Generic;
 
-namespace Api.Models.Entities
+namespace Nancy.Template.WebService.Models.Entities
 {
     public class ValidationFailedResponse
     {

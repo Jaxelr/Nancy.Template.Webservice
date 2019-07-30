@@ -1,16 +1,16 @@
-﻿using Api.Helpers;
-using Api.Repositories;
+﻿using System;
+using System.Diagnostics;
 using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.RapidCache.Extensions;
 using Nancy.Routing;
 using Nancy.Serilog;
+using Nancy.Template.WebService.Customization;
+using Nancy.Template.WebService.Repositories;
 using Nancy.TinyIoc;
 using Newtonsoft.Json;
 using Serilog;
 using Serilog.Formatting.Json;
-using System;
-using System.Diagnostics;
 
 namespace Api
 {

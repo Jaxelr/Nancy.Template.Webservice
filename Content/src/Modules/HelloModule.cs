@@ -1,14 +1,13 @@
-﻿using Api.Helpers;
-using Api.Models.Operations;
-using Api.Models.Entities;
-using Api.Repositories;
-using Nancy;
+﻿using System.Diagnostics;
 using Nancy.Metadata.Modules;
 using Nancy.Metadata.OpenApi.Core;
 using Nancy.Metadata.OpenApi.Fluent;
-using System.Diagnostics;
+using Nancy.Template.WebService.Extensions;
+using Nancy.Template.WebService.Models.Entities;
+using Nancy.Template.WebService.Models.Operations;
+using Nancy.Template.WebService.Repositories;
 
-namespace Api.Modules
+namespace Nancy.Template.WebService.Modules
 {
     public class SampleMetadataModule : MetadataModule<OpenApiRouteMetadata>
     {

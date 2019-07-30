@@ -1,6 +1,6 @@
-﻿using Api.Models.Entities;
+﻿using Nancy.Template.WebService.Models.Entities;
 
-namespace Api.Repositories
+namespace Nancy.Template.WebService.Repositories
 {
     public interface IHelloRepository
     {

@@ -1,12 +1,11 @@
-﻿using Api.Models.Entities;
-using Nancy;
+﻿using System;
+using System.Threading.Tasks;
 using Nancy.ModelBinding;
 using Nancy.Responses.Negotiation;
+using Nancy.Template.WebService.Models.Entities;
 using Nancy.Validation;
-using System;
-using System.Threading.Tasks;
 
-namespace Api.Helpers
+namespace Nancy.Template.WebService.Extensions
 {
     public static class ModuleExtensions
     {

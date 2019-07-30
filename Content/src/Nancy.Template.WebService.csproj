@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <RootNamespace>Api</RootNamespace>
+    <RootNamespace>Nancy.Template.WebService</RootNamespace>
     
   </PropertyGroup>
 
