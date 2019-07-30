@@ -4,6 +4,7 @@ using Nancy.ModelBinding;
 using Nancy.Responses.Negotiation;
 using Nancy.Template.WebService.Models.Entities;
 using Nancy.Validation;
+using Nancy;
 
 namespace Nancy.Template.WebService.Extensions
 {
