@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 using Serilog;
 using Serilog.Formatting.Json;
 
-namespace Api
+namespace Nancy.Template.WebService
 {
     public class Bootstrapper : DefaultNancyBootstrapper
     {

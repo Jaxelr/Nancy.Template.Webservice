@@ -1,4 +1,4 @@
-﻿namespace Api
+﻿namespace Nancy.Template.WebService
 {
     public class AppSettings
     {

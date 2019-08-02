@@ -1,11 +1,10 @@
-﻿using Api;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.HealthChecks;
 using Nancy.Owin;
-using System.Threading.Tasks;
 
 namespace Nancy.Template.WebService
 {
@@ -16,11 +15,11 @@ namespace Nancy.Template.WebService
 
         public Startup(IHostingEnvironment env)
         {
-              var builder = new ConfigurationBuilder()
-                .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-                .AddEnvironmentVariables();
+            var builder = new ConfigurationBuilder()
+              .SetBasePath(env.ContentRootPath)
+              .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+              .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+              .AddEnvironmentVariables();
             Configuration = builder.Build();
         }
 
@@ -55,7 +54,7 @@ namespace Nancy.Template.WebService
             }
 
             app.UseStaticFiles();
-            app.UseOwin(x => x.UseNancy(options => options.Bootstrapper = new Api.Bootstrapper(settings)));
+            app.UseOwin(x => x.UseNancy(options => options.Bootstrapper = new Bootstrapper(settings)));
         }
     }
 }
