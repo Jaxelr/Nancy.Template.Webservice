@@ -25,9 +25,6 @@ namespace Nancy.Template.WebService
 
         public void ConfigureServices(IServiceCollection services)
         {
-            // Add framework services.
-            services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_2);
-
             //HealthChecks
             services.AddHealthChecks(checks =>
             {
@@ -43,17 +40,6 @@ namespace Nancy.Template.WebService
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseHsts();
-                app.UseHttpsRedirection();
-            }
-
-            app.UseStaticFiles();
             app.UseOwin(x => x.UseNancy(options => options.Bootstrapper = new Bootstrapper(settings)));
         }
     }
