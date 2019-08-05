@@ -38,8 +38,12 @@ namespace Nancy.Template.WebService
             services.AddSingleton(settings);
         }
 
+#pragma warning disable IDE0060 // Remove unused parameter
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+#pragma warning restore IDE0060 // Remove unused parameter
         {
+            app.UseStaticFiles();
+
             app.UseOwin(x => x.UseNancy(options => options.Bootstrapper = new Bootstrapper(settings)));
         }
     }
