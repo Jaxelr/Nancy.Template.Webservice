@@ -2,20 +2,22 @@
 using Nancy.Metadata.OpenApi.Model;
 using Nancy.Metadata.OpenApi.Modules;
 using Nancy.Routing;
-using Nancy;
 
 namespace Nancy.Template.WebService.Modules
 {
     public class DocsModule : OpenApiDocsModuleBase
     {
-        public static Server Server => new Server() { Description = "Localhost", Url = "http://localhost:50657" };
-
-        public DocsModule(IRouteCacheProvider routeCacheProvider)
+        public DocsModule(IRouteCacheProvider routeCacheProvider, AppSettings appSettings)
             : base(routeCacheProvider,
-              "/api/docs",                      // where module should be located
-              "Hello Api",                      // title
-              "v1.0",                           // api version
-              host: Server)                     // host
+              appSettings.Metadata.DocsPath,                            // where module should be located
+              appSettings.Metadata.Title,                               // title
+              appSettings.Metadata.Version,                             // api version
+              host: new Server()                                        // host
+              {
+                  Description = appSettings.Metadata.Host.Description,
+                  Url = appSettings.Metadata.Host.Url
+              }
+            )
         {
             Get("/", async (x, ct) => await Task.Run(() => Response.AsRedirect("/index.html")));
         }
