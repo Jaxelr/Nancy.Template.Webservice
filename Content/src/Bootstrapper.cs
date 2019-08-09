@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Net.Http;
 using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.RapidCache.Extensions;
@@ -53,7 +54,9 @@ namespace Nancy.Template.WebService
 
         private void ConfigureCache(NancyContext context)
         {
-            if (context.Response.StatusCode == HttpStatusCode.OK && (context.Request.Method == "GET" || context.Request.Method == "HEAD"))
+            if (context.Response.StatusCode == HttpStatusCode.OK &&
+                (context.Request.Method == HttpMethod.Get.Method ||
+                context.Request.Method == HttpMethod.Head.Method))
             {
                 context.Response = context.Response.AsCacheable(DateTime.UtcNow.AddSeconds(settings.Cache.CacheTimespan));
             }
