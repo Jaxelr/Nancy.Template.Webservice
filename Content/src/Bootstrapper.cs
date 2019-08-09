@@ -5,10 +5,8 @@ using Nancy.Bootstrapper;
 using Nancy.RapidCache.Extensions;
 using Nancy.Routing;
 using Nancy.Serilog;
-using Nancy.Template.WebService.Customization;
 using Nancy.Template.WebService.Repositories;
 using Nancy.TinyIoc;
-using Newtonsoft.Json;
 using Serilog;
 using Serilog.Formatting.Json;
 
@@ -44,8 +42,6 @@ namespace Nancy.Template.WebService
         protected override void ConfigureApplicationContainer(TinyIoCContainer container)
         {
             base.ConfigureApplicationContainer(container);
-
-            container.Register<JsonSerializer, CustomJsonSerializer>();
 
             container.Register(settings);
             container.Register<Stopwatch, Stopwatch>();
