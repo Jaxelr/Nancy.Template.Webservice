@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Customization\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
