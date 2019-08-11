@@ -30,6 +30,7 @@ namespace Nancy.Template.WebService.Modules
         public SampleModule(Stopwatch watch, IHelloRepository repo) : base("api")
         {
             this.repo = repo;
+
             this.watch = watch;
             this.watch.Restart();
 
