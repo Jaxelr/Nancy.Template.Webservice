@@ -27,7 +27,6 @@
     <PackageReference Include="Nancy.RapidCache" Version="0.4.1" />
     <PackageReference Include="Nancy.Serilog" Version="2.1.0" />
     <PackageReference Include="Nancy.Validation.FluentValidation" Version="2.0.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
     <PackageReference Include="Serilog.Sinks.File" Version="4.0.0" />
   </ItemGroup>
 
