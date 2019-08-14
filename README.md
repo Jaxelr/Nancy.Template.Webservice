@@ -52,7 +52,6 @@ These projects target dotnet core 2.2. The following libraries are included as p
 * [Nancy.RapidCache](https://github.com/Jaxelr/Nancy.RapidCache)
 * [Nancy.Serilog](https://github.com/Zaid-Ajaj/Nancy.Serilog)
 * [Serilog](https://github.com/serilog/serilog)
-* [Newtonsoft.Json](https://github.com/JamesNK/Newtonsoft.Json)
 * [Microsoft.AspNetCore.HealthChecks](https://github.com/dotnet-architecture/HealthChecks)
 * [Insight.Database](https://github.com/jonwagner/Insight.Database)
 * [Xunit](https://github.com/xunit/xunit)
