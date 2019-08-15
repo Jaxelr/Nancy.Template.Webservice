@@ -23,7 +23,7 @@ It can be customized to use:
 1. multiple types of logs (as based on the serilog infrastructure).
 1. different types of caches (as based on the rapid cache lib).
 1. other types of ORMs (i. e. Dapper) by replacing the Repository class with byo.
-1. alternatively move from swagger to openapi replace the nancy.metadata.swagger with nancy.metadata.openapi.
+1. alternatively move to swagger (legacy version) from openapi replacing the nancy.metadata.openapi with nancy.metadata.swagger library.
 
 ### Install
 
