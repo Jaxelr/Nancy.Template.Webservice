@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Nancy.ModelBinding;
 using Nancy.Responses.Negotiation;
-using Nancy.Template.WebService.Models.Entities;
+using Nancy.Template.WebService.Models.Operations;
 using Nancy.Validation;
 using Nancy;
 

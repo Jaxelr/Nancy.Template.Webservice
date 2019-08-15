@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Nancy.Template.WebService.Models.Entities
+namespace Nancy.Template.WebService.Models.Operations
 {
     public class FailedResponse
     {
