@@ -61,7 +61,6 @@ These projects target dotnet core 2.2. The following libraries are included as p
 
 For further information on custom templates, refer to the [Microsoft documentation][docs].
 
-
 [mit-img]: http://img.shields.io/badge/License-MIT-blue.svg
 [mit]: https://github.com/Jaxelr/Nancy.Template.Webservice/blob/master/LICENSE
 [build-img]: https://ci.appveyor.com/api/projects/status/4q831j12p00mkeij/branch/master?svg=true
