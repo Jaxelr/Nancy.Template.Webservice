@@ -13,7 +13,7 @@ namespace Nancy.Template.WebService
         private IConfiguration Configuration { get; set; }
         private readonly AppSettings settings = new AppSettings();
 
-        public Startup(IHostingEnvironment env)
+        public Startup(IWebHostEnvironment env)
         {
             var builder = new ConfigurationBuilder()
               .SetBasePath(env.ContentRootPath)
@@ -37,10 +37,7 @@ namespace Nancy.Template.WebService
 
             services.AddSingleton(settings);
         }
-
-#pragma warning disable IDE0060 // Remove unused parameter
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-#pragma warning restore IDE0060 // Remove unused parameter
+        public void Configure(IApplicationBuilder app)
         {
             app.UseStaticFiles();
 
