@@ -1,24 +1,21 @@
 ﻿using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 
 namespace Nancy.Template.WebService
 {
     public class Program
     {
-#pragma warning disable IDE0060 // Remove unused parameter
+        public static void Main(string[] args) => CreateHostBuilder(args).Build().Run();
 
-        public static void Main(string[] args)
-#pragma warning restore IDE0060 // Remove unused parameter
-        {
-            var host = new WebHostBuilder()
-               .UseContentRoot(Directory.GetCurrentDirectory())
-               .UseKestrel()
-               .UseIISIntegration()
-               .UseHealthChecks("/healthcheck")
-               .UseStartup<Startup>()
-               .Build();
-
-            host.Run();
-        }
+        public static IHostBuilder CreateHostBuilder(string[] args) => 
+                    Host.CreateDefaultBuilder(args)
+                    .ConfigureWebHostDefaults(webBuilder =>
+                    {
+                        webBuilder.UseContentRoot(Directory.GetCurrentDirectory())
+                        .UseIISIntegration()
+                        .UseHealthChecks("/healthcheck")
+                        .UseStartup<Startup>();
+                    });
     }
 }
