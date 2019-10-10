@@ -1,4 +1,4 @@
-﻿namespace Nancy.Template.WebService
+﻿namespace Nancy.Template.WebService.Properties
 {
     public class AppSettings
     {

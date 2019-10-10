@@ -10,6 +10,7 @@ using Nancy.Template.WebService.Repositories;
 using Nancy.TinyIoc;
 using Serilog;
 using Serilog.Formatting.Json;
+using Nancy.Template.WebService.Properties;
 
 namespace Nancy.Template.WebService
 {

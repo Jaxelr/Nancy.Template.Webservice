@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.HealthChecks;
 using Nancy.Owin;
+using Nancy.Template.WebService.Properties;
 
 namespace Nancy.Template.WebService
 {
@@ -37,6 +38,7 @@ namespace Nancy.Template.WebService
 
             services.AddSingleton(settings);
         }
+
         public void Configure(IApplicationBuilder app)
         {
             app.UseStaticFiles();

@@ -3,6 +3,7 @@ using Nancy;
 using Nancy.Metadata.OpenApi.Model;
 using Nancy.Metadata.OpenApi.Modules;
 using Nancy.Routing;
+using Nancy.Template.WebService.Properties;
 
 namespace Nancy.Template.WebService.Modules
 {
