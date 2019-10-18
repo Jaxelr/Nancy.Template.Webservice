@@ -14,7 +14,7 @@ namespace Nancy.Template.WebService
         private IConfiguration Configuration { get; set; }
         private readonly AppSettings settings = new AppSettings();
 
-        public Startup(IWebHostEnvironment env)
+        public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
               .SetBasePath(env.ContentRootPath)
