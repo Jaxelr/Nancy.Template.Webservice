@@ -36,6 +36,11 @@ namespace Nancy.Template.WebService
             //Extract the AppSettings information from the appsettings config.
             Configuration.GetSection(nameof(AppSettings)).Bind(settings);
 
+            services.Configure<IISServerOptions>(options =>
+            {
+                options.AllowSynchronousIO = true;
+            });
+
             services.AddSingleton(settings);
         }
 
