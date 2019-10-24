@@ -14,7 +14,6 @@ namespace Nancy.Template.WebService
                     {
                         webBuilder.UseContentRoot(Directory.GetCurrentDirectory())
                         .UseIISIntegration()
-                        .UseHealthChecks("/healthcheck")
                         .UseStartup<Startup>();
                     });
     }
