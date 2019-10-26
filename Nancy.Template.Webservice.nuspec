@@ -2,13 +2,13 @@
 <package>
   <metadata>
     <id>Nancy.Template.Webservice</id>
-    <version>0.4.0</version>
+    <version>0.5.0</version>
     <title>Nancy template for Web services</title>
     <description>Nancy template for web services including a few helpful libraries, for the full list of the libraries see the github page on the project url.</description>
     <authors>Jaxel Rojas</authors>
     <owners>Jaxel Rojas</owners>
     <projectUrl>https://github.com/Jaxelr/Nancy.Template.Webservice</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/Jaxelr/Nancy.Template.Webservice/master/icon.png</iconUrl>
+	<icon>icon.png</icon>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <releaseNotes>Upgrade to netcore 3.0</releaseNotes>
     <copyright>2019</copyright>
@@ -21,5 +21,6 @@
   </metadata>
   <files>
     <file src="Content\**" exclude="**\.vs\**;**\bin\**;**\obj\**;**\*.user;**\*.lock.json;**\.vscode\**" target="content"/>
+    <file src="icon.png" target="" />
   </files>
 </package>
