@@ -19,11 +19,11 @@
     <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="3.0.0" />
     <PackageReference Include="Nancy" Version="2.0.0" />
     <PackageReference Include="Nancy.Metadata.Modules" Version="2.0.0" />
-    <PackageReference Include="Nancy.Metadata.OpenApi" Version="0.10.0" />
+    <PackageReference Include="Nancy.Metadata.OpenApi" Version="0.11.0" />
     <PackageReference Include="Nancy.RapidCache" Version="0.4.1" />
     <PackageReference Include="Nancy.Serilog" Version="2.1.0" />
     <PackageReference Include="Nancy.Validation.FluentValidation" Version="2.0.0" />
-    <PackageReference Include="Serilog.Sinks.File" Version="4.0.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="4.1.0" />
   </ItemGroup>
 
   <ItemGroup>
