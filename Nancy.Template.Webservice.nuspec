@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>Nancy.Template.Webservice</id>
-    <version>0.5.0</version>
+    <version>0.4.0</version>
     <title>Nancy template for Web services</title>
     <description>Nancy template for web services including a few helpful libraries, for the full list of the libraries see the github page on the project url.</description>
     <authors>Jaxel Rojas</authors>
