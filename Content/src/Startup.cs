@@ -15,7 +15,7 @@ namespace Nancy.Template.WebService
     public class Startup
     {
         private IConfiguration Configuration { get; set; }
-        private readonly AppSettings settings = new AppSettings();
+        private readonly AppSettings settings;
 
         public Startup(IWebHostEnvironment env)
         {
@@ -25,15 +25,15 @@ namespace Nancy.Template.WebService
               .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
               .AddEnvironmentVariables();
             Configuration = builder.Build();
+
+            //Extract the AppSettings information from the appsettings config.
+            Configuration.GetSection(nameof(AppSettings)).Bind(settings);
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
             //HealthChecks
             services.AddHealthChecks();
-
-            //Extract the AppSettings information from the appsettings config.
-            Configuration.GetSection(nameof(AppSettings)).Bind(settings);
 
             services.Configure<IISServerOptions>(options =>
             {
@@ -60,7 +60,8 @@ namespace Nancy.Template.WebService
             context.Response.ContentType = "application/json";
 
             var json = new JObject(
-                        new JProperty("status", report.Status),
+                        new JProperty("statusCode", report.Status),
+                        new JProperty("status", report.Status.ToString()),
                         new JProperty("timelapsed", report.TotalDuration)
                 );
 
