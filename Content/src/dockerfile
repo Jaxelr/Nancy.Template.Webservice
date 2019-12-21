@@ -1,4 +1,4 @@
-FROM microsoft/aspnetcore
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1
 LABEL name="Nancy.Template.WebService"
 ENTRYPOINT ["dotnet", "Nancy.Template.WebService.dll"]
 ARG source=.
