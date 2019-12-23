@@ -27,6 +27,7 @@ namespace Nancy.Template.WebService
             Configuration = builder.Build();
 
             //Extract the AppSettings information from the appsettings config.
+            settings = new AppSettings();
             Configuration.GetSection(nameof(AppSettings)).Bind(settings);
         }
 
