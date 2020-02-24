@@ -10,7 +10,7 @@ namespace Nancy.Template.WebService.Extensions
 {
     public static class ModuleExtensions
     {
-        private static string ModelBindingErrorMessage => @"The model is not binding to the request";
+        private static string ModelBindingErrorMessage => "The model is not binding to the request";
 
         public static void GetHandler<TOut>(this NancyModule module, string path, Func<TOut> handler)
             => module.GetHandler(path, path, handler);
@@ -22,13 +22,13 @@ namespace Nancy.Template.WebService.Extensions
             => module.DeleteHandler(path, path, handler);
 
         public static void GetHandler<TOut>(this NancyModule module, string name, string path, Func<TOut> handler)
-            => module.Get(path, r => RunHandler(module, handler), name: name);
+            => module.Get(path, _ => RunHandler(module, handler), name: name);
 
         public static void PostHandler<TOut>(this NancyModule module, string name, string path, Func<TOut> handler)
-            => module.Post(path, r => RunHandler(module, handler), name: name);
+            => module.Post(path, _ => RunHandler(module, handler), name: name);
 
         public static void DeleteHandler<TOut>(this NancyModule module, string name, string path, Func<TOut> handler)
-            => module.Delete(path, r => RunHandler(module, handler), name: name);
+            => module.Delete(path, _ => RunHandler(module, handler), name: name);
 
         public static void GetHandler<TIn, TOut>(this NancyModule module, string path, Func<TIn, TOut> handler)
             => module.GetHandler(path, path, handler);
@@ -40,22 +40,22 @@ namespace Nancy.Template.WebService.Extensions
             => module.DeleteHandler(path, path, handler);
 
         public static void GetHandler<TIn, TOut>(this NancyModule module, string name, string path, Func<TIn, TOut> handler)
-            => module.Get(path, r => RunHandler(module, handler), name: name);
+            => module.Get(path, _ => RunHandler(module, handler), name: name);
 
         public static void PostHandler<TIn, TOut>(this NancyModule module, string name, string path, Func<TIn, TOut> handler)
-            => module.Post(path, r => RunHandler(module, handler), name: name);
+            => module.Post(path, _ => RunHandler(module, handler), name: name);
 
         public static void DeleteHandler<TIn, TOut>(this NancyModule module, string name, string path, Func<TIn, TOut> handler)
-            => module.Delete(path, r => RunHandler(module, handler), name: name);
+            => module.Delete(path, _ => RunHandler(module, handler), name: name);
 
         public static void GetHandler<TIn>(this NancyModule module, string name, string path, Func<TIn, Task<object>> handler)
-            => module.Get(path, r => RunHandlerAsync(module, handler), name: name);
+            => module.Get(path, _ => RunHandlerAsync(module, handler), name: name);
 
         public static void PostHandler<TIn>(this NancyModule module, string name, string path, Func<TIn, Task<object>> handler)
-            => module.Post(path, r => RunHandlerAsync(module, handler), name: name);
+            => module.Post(path, _ => RunHandlerAsync(module, handler), name: name);
 
         public static void DeleteHandler<TIn>(this NancyModule module, string name, string path, Func<TIn, Task<object>> handler)
-            => module.Delete(path, r => RunHandlerAsync(module, handler), name: name);
+            => module.Delete(path, _ => RunHandlerAsync(module, handler), name: name);
 
         public static object RunHandler<TOut>(this NancyModule module, Func<TOut> handler)
         {
@@ -73,7 +73,7 @@ namespace Nancy.Template.WebService.Extensions
         {
             try
             {
-                return await handler();
+                return await handler().ConfigureAwait(false);
             }
             catch (Exception Ex)
             {
@@ -125,7 +125,7 @@ namespace Nancy.Template.WebService.Extensions
                     return module.Negotiate.RespondWithValidationFailure(ModelBindingErrorMessage);
                 }
 
-                return await handler(model);
+                return await handler(model).ConfigureAwait(false);
             }
             catch (Exception Ex)
             {

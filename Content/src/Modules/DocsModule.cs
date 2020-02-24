@@ -21,7 +21,7 @@ namespace Nancy.Template.WebService.Modules
               }
             )
         {
-            Get("/", async (x, ct) => await Task.FromResult(Response.AsRedirect("/index.html")));
+            Get("/", async (_, __) => await Task.FromResult(Response.AsRedirect("/index.html")).ConfigureAwait(false));
         }
     }
 }

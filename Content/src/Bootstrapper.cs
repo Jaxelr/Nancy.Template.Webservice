@@ -22,7 +22,6 @@ namespace Nancy.Template.WebService
         {
             this.settings = settings;
         }
-
         protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
         {
             base.ApplicationStartup(container, pipelines);
