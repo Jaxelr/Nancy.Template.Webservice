@@ -1,6 +1,6 @@
 # How to contribute
 
-I've tried to keep the requirements to the minimum possible. 
+I've tried to keep the requirements as minimal as plausible.
 
 ## Pull requests
 
