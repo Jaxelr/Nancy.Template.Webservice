@@ -4,7 +4,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace Nancy.Template.WebService
 {
-    public class Program
+    public static class Program
     {
         public static void Main(string[] args)
         {
