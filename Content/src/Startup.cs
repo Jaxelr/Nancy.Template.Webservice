@@ -23,7 +23,7 @@ namespace Nancy.Template.WebService
             var builder = new ConfigurationBuilder()
               .SetBasePath(env.ContentRootPath)
               .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-              .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+              .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true)
               .AddEnvironmentVariables();
             Configuration = builder.Build();
 
@@ -49,7 +49,7 @@ namespace Nancy.Template.WebService
                 options.AllowSynchronousIO = true;
             });
 
-            services.AddSingleton(settings);
+            services.AddSingleton(settings); //typeof(AppSettings)
         }
 
         public void Configure(IApplicationBuilder app)
