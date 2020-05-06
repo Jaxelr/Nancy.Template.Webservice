@@ -45,14 +45,16 @@ To uninstall simply execute:
 
 `dotnet new -u "Nancy.Template.Webservice"`
 
-These projects target dotnet core 3.1. The following libraries are included as part of the projects:
+### Dependencies
+
+This template targets dotnet core 3.1. The following libraries are included as part of the projects:
 
 * [Nancy](https://github.com/NancyFx/Nancy)
 * [Nancy.Metadata.OpenApi](https://github.com/Jaxelr/Nancy.Metadata.OpenApi)
 * [Nancy.RapidCache](https://github.com/Jaxelr/Nancy.RapidCache)
 * [Nancy.Serilog](https://github.com/Zaid-Ajaj/Nancy.Serilog)
 * [Serilog](https://github.com/serilog/serilog)
-* [Microsoft.AspNetCore.Diagnostics.HealthChecks](https://github.com/dotnet/aspnetcore/tree/master/src/HealthChecks/HealthChecks)
+* [Microsoft.Extensions.Diagnostics.HealthChecks](https://github.com/dotnet/aspnetcore/tree/master/src/HealthChecks/HealthChecks)
 * [Insight.Database](https://github.com/jonwagner/Insight.Database)
 * [Xunit](https://github.com/xunit/xunit)
 * [NSubstitute](https://github.com/nsubstitute/NSubstitute)
