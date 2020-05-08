@@ -12,49 +12,49 @@ namespace Nancy.Template.WebService.Extensions
     {
         private static string ModelBindingErrorMessage => "The model is not binding to the request";
 
-        public static void GetHandler<TOut>(this NancyModule module, string path, Func<TOut> handler)
-            => module.GetHandler(path, path, handler);
+        public static void Get<TOut>(this NancyModule module, string path, Func<TOut> handler)
+            => module.Get(path, path, handler);
 
-        public static void PostHandler<TOut>(this NancyModule module, string path, Func<TOut> handler)
-            => module.PostHandler(path, path, handler);
+        public static void Post<TOut>(this NancyModule module, string path, Func<TOut> handler)
+            => module.Post(path, path, handler);
 
-        public static void DeleteHandler<TOut>(this NancyModule module, string path, Func<TOut> handler)
-            => module.DeleteHandler(path, path, handler);
+        public static void Delete<TOut>(this NancyModule module, string path, Func<TOut> handler)
+            => module.Delete(path, path, handler);
 
-        public static void GetHandler<TOut>(this NancyModule module, string name, string path, Func<TOut> handler)
+        public static void Get<TOut>(this NancyModule module, string name, string path, Func<TOut> handler)
             => module.Get(path, _ => RunHandler(module, handler), name: name);
 
-        public static void PostHandler<TOut>(this NancyModule module, string name, string path, Func<TOut> handler)
+        public static void Post<TOut>(this NancyModule module, string name, string path, Func<TOut> handler)
             => module.Post(path, _ => RunHandler(module, handler), name: name);
 
-        public static void DeleteHandler<TOut>(this NancyModule module, string name, string path, Func<TOut> handler)
+        public static void Delete<TOut>(this NancyModule module, string name, string path, Func<TOut> handler)
             => module.Delete(path, _ => RunHandler(module, handler), name: name);
 
-        public static void GetHandler<TIn, TOut>(this NancyModule module, string path, Func<TIn, TOut> handler)
-            => module.GetHandler(path, path, handler);
+        public static void Get<TIn, TOut>(this NancyModule module, string path, Func<TIn, TOut> handler)
+            => module.Get(path, path, handler);
 
-        public static void PostHandler<TIn, TOut>(this NancyModule module, string path, Func<TIn, TOut> handler)
-            => module.PostHandler(path, path, handler);
+        public static void Post<TIn, TOut>(this NancyModule module, string path, Func<TIn, TOut> handler)
+            => module.Post(path, path, handler);
 
-        public static void DeleteHandler<TIn, TOut>(this NancyModule module, string path, Func<TIn, TOut> handler)
-            => module.DeleteHandler(path, path, handler);
+        public static void Delete<TIn, TOut>(this NancyModule module, string path, Func<TIn, TOut> handler)
+            => module.Delete(path, path, handler);
 
-        public static void GetHandler<TIn, TOut>(this NancyModule module, string name, string path, Func<TIn, TOut> handler)
+        public static void Get<TIn, TOut>(this NancyModule module, string name, string path, Func<TIn, TOut> handler)
             => module.Get(path, _ => RunHandler(module, handler), name: name);
 
-        public static void PostHandler<TIn, TOut>(this NancyModule module, string name, string path, Func<TIn, TOut> handler)
+        public static void Post<TIn, TOut>(this NancyModule module, string name, string path, Func<TIn, TOut> handler)
             => module.Post(path, _ => RunHandler(module, handler), name: name);
 
-        public static void DeleteHandler<TIn, TOut>(this NancyModule module, string name, string path, Func<TIn, TOut> handler)
+        public static void Delete<TIn, TOut>(this NancyModule module, string name, string path, Func<TIn, TOut> handler)
             => module.Delete(path, _ => RunHandler(module, handler), name: name);
 
-        public static void GetHandler<TIn>(this NancyModule module, string name, string path, Func<TIn, Task<object>> handler)
+        public static void Get<TIn>(this NancyModule module, string name, string path, Func<TIn, Task<object>> handler)
             => module.Get(path, _ => RunHandlerAsync(module, handler), name: name);
 
-        public static void PostHandler<TIn>(this NancyModule module, string name, string path, Func<TIn, Task<object>> handler)
+        public static void Post<TIn>(this NancyModule module, string name, string path, Func<TIn, Task<object>> handler)
             => module.Post(path, _ => RunHandlerAsync(module, handler), name: name);
 
-        public static void DeleteHandler<TIn>(this NancyModule module, string name, string path, Func<TIn, Task<object>> handler)
+        public static void Delete<TIn>(this NancyModule module, string name, string path, Func<TIn, Task<object>> handler)
             => module.Delete(path, _ => RunHandlerAsync(module, handler), name: name);
 
         public static object RunHandler<TOut>(this NancyModule module, Func<TOut> handler)
