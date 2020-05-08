@@ -6,11 +6,11 @@ using Nancy.Bootstrapper;
 using Nancy.RapidCache.Extensions;
 using Nancy.Routing;
 using Nancy.Serilog;
+using Nancy.Template.WebService.Models.Entities;
 using Nancy.Template.WebService.Repositories;
 using Nancy.TinyIoc;
 using Serilog;
 using Serilog.Formatting.Json;
-using Nancy.Template.WebService.Properties;
 
 namespace Nancy.Template.WebService
 {

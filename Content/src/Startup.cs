@@ -7,8 +7,9 @@ using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
+using Nancy;
 using Nancy.Owin;
-using Nancy.Template.WebService.Properties;
+using Nancy.Template.WebService.Models.Entities;
 using Newtonsoft.Json.Linq;
 
 namespace Nancy.Template.WebService
@@ -38,16 +39,10 @@ namespace Nancy.Template.WebService
             services.AddHealthChecks();
 
             //For Kestrel usage
-            services.Configure<KestrelServerOptions>(options =>
-            {
-                options.AllowSynchronousIO = true;
-            });
+            services.Configure<KestrelServerOptions>(options => options.AllowSynchronousIO = true);
 
             //For IIS usage
-            services.Configure<IISServerOptions>(options =>
-            {
-                options.AllowSynchronousIO = true;
-            });
+            services.Configure<IISServerOptions>(options => options.AllowSynchronousIO = true);
 
             services.AddSingleton(settings); //typeof(AppSettings)
         }
