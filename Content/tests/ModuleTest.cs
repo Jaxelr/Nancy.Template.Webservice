@@ -12,10 +12,10 @@ namespace Nancy.Template.WebService.Tests
 {
     public class ModuleTest
     {
-        private IHelloRepository repository = Substitute.For<IHelloRepository>();
+        private readonly IHelloRepository repository = Substitute.For<IHelloRepository>();
 
         [Fact]
-        public void Sample_module_returns_hello()
+        public void Hello_module_returns_hello()
         {
             //Arrange
             string Name = Fakes.FakeProps.Username;
@@ -26,7 +26,7 @@ namespace Nancy.Template.WebService.Tests
 
             var browser = new Browser(with =>
             {
-                with.Module<SampleModule>();
+                with.Module<HelloModule>();
                 with.Dependency(new Stopwatch());
                 with.Dependency(new HelloValidator());
                 with.Dependency(repository);
@@ -45,7 +45,7 @@ namespace Nancy.Template.WebService.Tests
         }
 
         [Fact]
-        public void Sample_module_returns_400_code()
+        public void Hello_module_returns_400_code()
         {
             //Arrange
             string HelloPath = Fakes.FakeProps.HelloPath;
@@ -53,7 +53,7 @@ namespace Nancy.Template.WebService.Tests
 
             var browser = new Browser(with =>
             {
-                with.Module<SampleModule>();
+                with.Module<HelloModule>();
                 with.Dependency(new Stopwatch());
                 with.Dependency(new HelloValidator());
                 with.Dependency(repository);
