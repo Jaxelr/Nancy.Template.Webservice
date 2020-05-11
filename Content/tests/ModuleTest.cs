@@ -7,7 +7,6 @@ using Nancy.Testing;
 using NSubstitute;
 using Xunit;
 
-
 namespace Nancy.Template.WebService.Tests
 {
     public class ModuleTest
@@ -60,10 +59,7 @@ namespace Nancy.Template.WebService.Tests
             });
 
             //Act
-            var response = browser.Get(HelloPath, with =>
-            {
-                with.Header(nameof(Accept), Accept);
-            });
+            var response = browser.Get(HelloPath, with => with.Header(nameof(Accept), Accept));
 
             //Assert
             Assert.Equal(HttpStatusCode.BadRequest, response.Result.StatusCode);
