@@ -1,8 +1,8 @@
 ﻿using Nancy.Metadata.Modules;
 using Nancy.Metadata.OpenApi.Core;
 using Nancy.Metadata.OpenApi.Fluent;
-using Nancy.Template.WebService.Models.Entities;
-using Nancy.Template.WebService.Models.Operations;
+using Nancy.Template.WebService.Entities;
+using Nancy.Template.WebService.Operations;
 
 namespace Nancy.Template.WebService.Modules.Metadata
 {

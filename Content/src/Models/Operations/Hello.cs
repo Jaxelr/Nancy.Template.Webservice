@@ -1,6 +1,6 @@
-﻿using Nancy.Template.WebService.Models.Entities;
+﻿using Nancy.Template.WebService.Entities;
 
-namespace Nancy.Template.WebService.Models.Operations
+namespace Nancy.Template.WebService.Operations
 {
     public class HelloRequest
     {

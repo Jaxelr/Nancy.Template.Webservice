@@ -1,5 +1,5 @@
 ﻿using System;
-using Nancy.Template.WebService.Models.Entities;
+using Nancy.Template.WebService.Entities;
 
 namespace Nancy.Template.WebService.Repositories
 {

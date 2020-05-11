@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
 using Nancy;
 using Nancy.Template.WebService.Extensions;
-using Nancy.Template.WebService.Models.Entities;
-using Nancy.Template.WebService.Models.Operations;
+using Nancy.Template.WebService.Entities;
+using Nancy.Template.WebService.Operations;
 using Nancy.Template.WebService.Repositories;
 
 namespace Nancy.Template.WebService.Modules

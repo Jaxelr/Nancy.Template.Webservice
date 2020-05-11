@@ -6,7 +6,7 @@ using Nancy.Bootstrapper;
 using Nancy.RapidCache.Extensions;
 using Nancy.Routing;
 using Nancy.Serilog;
-using Nancy.Template.WebService.Models.Entities;
+using Nancy.Template.WebService.Entities;
 using Nancy.Template.WebService.Repositories;
 using Nancy.TinyIoc;
 using Serilog;

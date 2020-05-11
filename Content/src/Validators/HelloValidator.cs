@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using Nancy.Template.WebService.Models.Operations;
+using Nancy.Template.WebService.Operations;
 
 namespace Nancy.Template.WebService.Validators
 {

@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Nancy;
 using Nancy.Owin;
-using Nancy.Template.WebService.Models.Entities;
+using Nancy.Template.WebService.Entities;
 using Newtonsoft.Json.Linq;
 
 namespace Nancy.Template.WebService

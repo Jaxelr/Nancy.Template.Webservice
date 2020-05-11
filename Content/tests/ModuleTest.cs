@@ -22,7 +22,7 @@ namespace Nancy.Template.WebService.Tests
             string HelloPath = Fakes.FakeProps.HelloPath;
             string Accept = Fakes.FakeProps.AcceptHeader;
 
-            repository.SayHello(Name).Returns(new Models.Entities.Hello { Name = $"Hello, {Name}" });
+            repository.SayHello(Name).Returns(new Entities.Hello { Name = $"Hello, {Name}" });
 
             var browser = new Browser(with =>
             {

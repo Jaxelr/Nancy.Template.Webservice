@@ -1,4 +1,4 @@
-﻿namespace Nancy.Template.WebService.Models.Entities
+﻿namespace Nancy.Template.WebService.Entities
 {
     public class Host
     {
