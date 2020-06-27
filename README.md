@@ -2,6 +2,8 @@
 
 Dotnet template library used to create web services using the Nancy web Framework.
 
+__Note:__ Since Nancyfx is no longer being maintained i will be deprioritizing this library, please check [here for details](https://github.com/NancyFx/Nancy/issues/3010)
+
 ## Builds
 
 | Appveyor  |
