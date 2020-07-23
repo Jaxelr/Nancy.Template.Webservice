@@ -1,4 +1,5 @@
-﻿using Nancy.Metadata.Modules;
+﻿using Nancy;
+using Nancy.Metadata.Modules;
 using Nancy.Metadata.OpenApi.Core;
 using Nancy.Metadata.OpenApi.Fluent;
 using Nancy.Template.WebService.Entities;

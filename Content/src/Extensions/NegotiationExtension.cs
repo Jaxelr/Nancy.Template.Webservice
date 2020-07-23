@@ -1,11 +1,12 @@
 ﻿using System;
 using Nancy.Responses.Negotiation;
+using Nancy;
 using Nancy.Template.WebService.Operations;
 using Nancy.Validation;
 
 namespace Nancy.Template.WebService.Extensions
 {
-    public static class NegotiationExtension
+    public static class NegotiatorExtension
     {
         public static Negotiator RespondWithValidationFailure(this Negotiator negotiate, ModelValidationResult validationResult)
         {
